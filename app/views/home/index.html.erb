@@ -8,37 +8,18 @@
 
 <div class="card">
   <div class="card-body">
-    <div class="media mb-3">
-      <img class="mr-3" src="https://placekitten.com/96/96" alt="Generic placeholder image">
-      <div class="media-body">
-        <h5 class="mt-0">user@test.com asked:</h5>
-        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-        <div class="py-2">
-          <a href="/questions/12" class="btn btn-xs btn-success">View Answers</a>
+    <% @questions.each do |q| %>
+      <div class="media mb-3">
+        <img class="mr-3" src="<%= q.gravatar %>" alt="Generic placeholder image">
+        <div class="media-body">
+          <h5 class="mt-0"><%= q.email %> asked:</h5>
+          <span><%= time_ago_in_words q.created_at %> ago</span>
+          <div><%= q.body %></div>
+          <div class="py-2">
+            <a href="/questions/12" class="btn btn-xs btn-success">View Answers</a>
+          </div>
         </div>
       </div>
-    </div>
-
-    <div class="media mb-3">
-      <img class="mr-3" src="https://placekitten.com/96/96" alt="Generic placeholder image">
-      <div class="media-body">
-        <h5 class="mt-0">user@test.com asked:</h5>
-        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-        <div class="py-2">
-          <a href="/questions/12" class="btn btn-xs btn-success">View Answers</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="media">
-      <img class="mr-3" src="https://placekitten.com/96/96" alt="Generic placeholder image">
-      <div class="media-body">
-        <h5 class="mt-0">user@test.com asked:</h5>
-        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-        <div class="py-2">
-          <a href="/questions/12" class="btn btn-xs btn-success">View Answers</a>
-        </div>
-      </div>
-    </div>
+    <% end %>
   </div>
 </div>
