@@ -10,13 +10,13 @@
   <div class="card-body">
     <% @questions.each do |q| %>
       <div class="media mb-3">
-        <img class="mr-3" src="<%= q.gravatar %>" alt="Generic placeholder image">
+        <img class="mr-3" src="<%= q.gravatar %>" alt="User avatar">
         <div class="media-body">
-          <h5 class="mt-0"><%= q.email %> asked:</h5>
-          <span><%= time_ago_in_words q.created_at %> ago</span>
+          <h5 class="my-0 mt-0"><%= q.email %> asked:</h5>
+          <span class="small"><%= time_ago_in_words q.created_at %> ago</span>
           <div><%= q.body %></div>
           <div class="py-2">
-            <a href="/questions/12" class="btn btn-xs btn-success">View Answers</a>
+            <a href="<%= question_path(q) %>" class="btn btn-xs btn-outline-dark">View Answers</a>
           </div>
         </div>
       </div>

@@ -1,0 +1,35 @@
+<div class="card bg-secondary text-white mb-5">
+  <div class="card-body">
+    <div class="media">
+      <img class="mr-3" src="<%= @question.gravatar %>" alt="Generic placeholder image">
+      <div class="media-body">
+        <h5 class="mt-0"><%= @question.email %> asked:</h5>
+        <div><%= @question.body %></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-8 offset-2 card">
+    <div class="card-body">
+      <div class="mb-3 py-2">
+        <a href="#" class="btn btn-xs btn-success" data-toggle="modal" data-target="#modal-answer-question">Submit new answer</a>
+      </div>
+
+      <%= render 'home/modal-new-answer'%>
+
+      <% @answers.each do |answer| %>
+        <div class="media mb-3">
+          <img class="mr-3" src="<%= answer.gravatar %>" alt="Generic placeholder image">
+          <div class="media-body">
+            <h5 class="my-0 mt-0"><%= answer.email %> answered:</h5>
+            <span class="small"><%= time_ago_in_words answer.created_at %> ago</span>
+            <div><%= answer.body %></div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
